@@ -1,7 +1,7 @@
 import {resend} from '../lib/resend';
 import {VerificationEmail} from '../../emails/VerficationEmail';
 import {ApiResponse} from '../types/ApiResponse';
-import { ca } from 'zod/locales';
+
 
 export async function sendVerificationEmail(
     email:string, 
@@ -9,6 +9,12 @@ export async function sendVerificationEmail(
     verifyCode:string
 ):Promise<ApiResponse> {
     try{
+        await resend.emails.send({
+  from: 'onboarding@resend.dev',
+  to: email,
+  subject: 'Messsage | Verification Code',
+  react: VerificationEmail,
+});
         return {
             success: true,
             message: "Verification email sent successfully" 

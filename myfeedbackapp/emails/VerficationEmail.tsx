@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-interface EmailTemplateProps {
+interface VerificationEmailProps {
   firstName: string;
 }
 
-export function VerificationEmail({ firstName }: EmailTemplateProps) {
+export function VerificationEmail({ firstName }: VerificationEmailProps) {
   return (
     <div>
       <h1>Welcome, {firstName}!</h1>
